@@ -269,16 +269,16 @@ public class CameraController : MonoBehaviour {
             float y = x / camera.aspect;
 
             //top left clip point
-            intoArray[0] = (atRotation * new Vector3(-x, y, z)) + cameraPosition; //added at rotated point relative to camera
+            intoArray[0] = (atRotation * new Vector3(-x - 1, y + 1, z)) + cameraPosition; //added at rotated point relative to camera
 
             //top right clip point
-            intoArray[1] = (atRotation * new Vector3(x, y, z)) + cameraPosition;
+            intoArray[1] = (atRotation * new Vector3(x + 1, y + 1, z)) + cameraPosition;
 
             //bottom left clip point
-            intoArray[2] = (atRotation * new Vector3(-x, -y, z)) + cameraPosition;
+            intoArray[2] = (atRotation * new Vector3(-x - 1, -y - 1, z)) + cameraPosition;
 
             //bottom right clip point
-            intoArray[3] = (atRotation * new Vector3(x, -y, z)) + cameraPosition;
+            intoArray[3] = (atRotation * new Vector3(x + 1, -y - 1, z)) + cameraPosition;
 
             //camera's position
             intoArray[4] = cameraPosition - camera.transform.forward;
